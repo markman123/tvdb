@@ -1,0 +1,15 @@
+defmodule Tvdb.Series do
+  @moduledoc """
+  Interface to look at information about series. Using the TVDb api
+  """
+
+  @doc """
+  Get series information based on the id of the series
+  To get the id, you can use the Tvdb.Search
+  """
+  def series_information(id) do
+    uri = "series/#{id}"
+    Tvdb.Connect.get(uri)
+  end
+  
+end

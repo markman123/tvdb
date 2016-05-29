@@ -1,0 +1,16 @@
+defmodule Tvdb.Formatter do
+  @doc """
+  Formats a map of episodes into a pretty printable format
+  """
+  def ep_list(list) do
+    Enum.map(list, &ep_string(&1))
+  end
+
+  defp ep_string(map) do
+    season = Map.get(map, "airedSeason")
+    ep = Map.get(map, "airedEpisodeNumber")
+    epName = Map.get(map, "episodeName")
+
+    "S#{season}E#{ep} - #{epName}"
+  end
+end
